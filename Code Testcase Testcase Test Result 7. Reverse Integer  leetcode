@@ -1,0 +1,25 @@
+class Solution {
+    public int reverse(int x) {
+        int rev = 0;
+        int flag = 0;
+        int pre_rev = 0;
+        if(x<0)
+        {
+            flag = 1;
+            x = x*-1;
+        }
+        while(x>0)
+        {
+            int temp = x%10;
+            rev = rev*10 + temp;
+            if((rev-temp)/10 != pre_rev) return 0;
+
+            pre_rev = rev;
+            x = x/10;
+            
+        }
+        if(flag == 1) rev = rev*-1;
+
+        return rev;
+    }
+}
